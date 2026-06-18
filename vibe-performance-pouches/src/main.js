@@ -61,7 +61,7 @@ let updateFormula = null;
 
 // connected Shopify store — buy buttons deep-link to its cart/checkout.
 // Change SHOP to your custom domain once it's connected (single source of truth).
-const SHOP = "vibe-performance-2.myshopify.com";
+const SHOP = "shop.vibeperformance.co.uk";
 const COLLECTION = "the-vibe-performance-system";
 const cartUrl = (p) => `https://${SHOP}/cart/${p.shopifyVariant}:1`;
 const collectionUrl = () => `https://${SHOP}/collections/${COLLECTION}`;

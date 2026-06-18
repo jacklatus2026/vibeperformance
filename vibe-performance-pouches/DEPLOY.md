@@ -60,9 +60,11 @@ First add both `vibeperformance.co.uk` and `www.vibeperformance.co.uk` as domain
 
 | Type | Name | Value | TTL |
 |------|------|-------|-----|
-| A | `@` | `76.76.21.21` | 600 |
+| A | `@` | `216.198.79.1` | 600 |
 | CNAME | `www` | `cname.vercel-dns.com` | 600 |
 | CNAME | `shop` | `shops.myshopify.com` | 600 |
+
+> **Delete any existing `A @` record first.** If the root currently has `A @ → 23.227.38.32` (a Shopify IP) or `A @ → 76.76.21.21` (Vercel's older IP), remove it and use `216.198.79.1` — Vercel's current apex IP. Vercel's Domains page always shows the exact value to use; match that. After updating, click **Refresh** on the Vercel Domains page; "Invalid Configuration" clears once DNS propagates.
 
 Vercel then auto-issues SSL and redirects apex ↔ www. (Netlify equivalent: apex `A @ 75.2.60.5`, `CNAME www → <your-site>.netlify.app`. Cloudflare Pages: move the domain's nameservers to Cloudflare and add the domain in Pages.)
 
