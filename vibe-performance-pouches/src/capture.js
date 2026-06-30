@@ -8,7 +8,7 @@ const RESOLUTION = 2048;
 // x = forward tilt (more = more lid visible); y = turn. The wrap label centres
 // the SKU name at the cylinder's ±90° sides, so y = -PI/2 faces a name straight
 // at the camera; the raised x-tilt shows more of the lid.
-const ANGLE = { x: 0.35, y: -Math.PI / 2 };
+const ANGLE = { x: 0.6, y: -Math.PI / 2 };
 // Capture camera field of view (deg). With PADDING this sets the framing.
 const CAMERA_FOV = 30;
 // Framing headroom — 1.0 = tin touches the frame edges, >1 adds even padding.
