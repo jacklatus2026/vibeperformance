@@ -4,13 +4,15 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 // ===================== KNOBS (edit these to re-shoot) =====================
 // Square output resolution in pixels.
 const RESOLUTION = 2048;
-// Locked rig orientation used identically for every SKU (radians). A slight
-// 3/4 hero tilt, label-forward. Tweak x (front tilt) / y (turn) to taste.
-const ANGLE = { x: 0.18, y: -0.5 };
+// Locked rig orientation used identically for every SKU (radians).
+// x = forward tilt (more = more lid visible); y = turn. The wrap label centres
+// the SKU name at the cylinder's ±90° sides, so y = -PI/2 faces a name straight
+// at the camera; the raised x-tilt shows more of the lid.
+const ANGLE = { x: 0.35, y: -Math.PI / 2 };
 // Capture camera field of view (deg). With PADDING this sets the framing.
 const CAMERA_FOV = 30;
 // Framing headroom — 1.0 = tin touches the frame edges, >1 adds even padding.
-const PADDING = 1.18;
+const PADDING = 1.2;
 // Which background treatments to emit per SKU: "transparent" and/or "white".
 const BACKGROUNDS = ["transparent", "white"];
 // ==========================================================================
