@@ -80,6 +80,27 @@ const view = { camX: 0, camY: 0.18, camZ: 4.6 };
 let renderActive = true;
 
 function init() {
+  // Hidden capture mode (?shoot): export high-res product stills, then stop.
+  // Fully gated — without the param the site behaves exactly as before.
+  if (new URLSearchParams(location.search).has("shoot")) {
+    pouch = createPouch(PRODUCTS[active]);
+    pouch.group.rotation.set(0, 0, 0); // orientation is owned by capture's ANGLE
+    rig.add(pouch.group);
+    loaderEl?.remove();
+    import("./capture.js").then(({ runCapture }) =>
+      runCapture({
+        scene,
+        rig,
+        PRODUCTS,
+        setFlavor: (p) => {
+          pouch.setFlavor(p);
+          accentLight.color.set(p.glow);
+        },
+      })
+    );
+    return; // skip smooth-scroll, hero animation, and the render loop
+  }
+
   initSmoothScroll();
   pouch = createPouch(PRODUCTS[active]);
   pouch.group.rotation.x = 0.12;
